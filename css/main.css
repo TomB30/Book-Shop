@@ -49,9 +49,3 @@
     align-items: center;
     gap: 5px;
 }
-
-.btns-pages {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-}
