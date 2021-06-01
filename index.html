@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <title>My BookShop</title>
+</head>
+
+<body onload="onInit()">
+    <nav class="navbar navbar-expand-lg navbar-light bg-secondary">
+        <a class="navbar-brand text-success" href="#">BookShop</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-link active text-white" href="#">Home<span class="sr-only">(current)</span></a>
+                <a class="nav-link text-white" href="#">Products</a>
+                <a class="nav-link text-white" href="#">Plans</a>
+            </div>
+        </div>
+        <div style="width: 100px;">
+            <select class="select-lang form-control" onchange="onSetLang(this.value)">
+                <option value="en">English</option>
+                <option value="he">עברית</option>
+            </select>
+        </div>
+    </nav>
+    <h1 class="title text-black-50" data-trans="title">Welcome To My Bookshop</h1>
+    <div class="mx-auto">
+        <button class="btn btn-success" onclick="onOpenModal()" data-trans="btn-new-book">Add A New Book</button>
+    </div>
+    <div class="table-container">
+        <h4 data-trans="table-title">Books In Stock</h4>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col" data-trans="th-id">Id</th>
+                    <th scope="col" data-trans="th-name" onclick="onSetSort('NAME')">Book Name</th>
+                    <th scope="col" data-trans="th-price" onclick="onSetSort('PRICE')">Book Price</th>
+                    <th scope="col" data-trans="th-actions" colspan="3">Actions</th>
+                </tr>
+            </thead>
+            <tbody class="books-container">
+            </tbody>
+        </table>
+    </div>
+    <div class="mx-auto btns-pages">
+        <nav aria-label="Page navigation example" style="position: relative; right:50% ;">
+            <ul class="pagination">
+                <li class="page-item"><button class="page-link" data-trans="btn-prev-page" onclick="onMovePage(-1)">Previous</button></li>
+                <li class="page-item"><span class="page-link curr-page">1</span></li>
+                <li class="page-item"><button class="page-link" data-trans="btn-next-page" onclick="onMovePage(1)">Next</button></li>
+            </ul>
+        </nav>
+    </div>
+    <div class="modal-add-bg bg hide">
+        <div class="add-book-modal">
+            <form onsubmit="onAddBook(event)" class="modal-form">
+                <h4>Add A Book</h4>
+                <input type="text" class="book-name form-control" placeholder="Book Name">
+                <input type="text" class="book-price form-control" placeholder="Book Price">
+                <button class="btn btn-success" data-trans="btn-add">Add Book</button>
+                <button class="btn btn-primary" data-trans="btn-close" type="button" onclick="onHideCard()">Close</button>
+            </form>
+        </div>
+    </div>
+    <div class="modal-update-bg bg hide">
+        <div class="update-book-modal">
+            <form class="modal-form" onsubmit="onUpdateBook(event)">
+                <h4>Update The Price</h4>
+                <input type="text" class="book-price-update form-control" placeholder="Book Price">
+                <button class="btn btn-success" data-trans="btn-update">Update Price</button>
+                <button class="btn btn-primary" data-trans="btn-close" type="button" onclick="onHideCard()">Close</button>
+            </form>
+        </div>
+    </div>
+    <div class="card-bg bg hide">
+    </div>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+        </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous">
+        </script>
+    <script src="js/storage-service.js"></script>
+    <script src="js/i18n-service.js"></script>
+    <script src="js/utils-service.js"></script>
+    <script src="js/index-service.js"></script>
+    <script src="js/index-controller.js"></script>
+</body>
+
+</html>
