@@ -11,13 +11,16 @@ function renderBooks() {
     var books = getBooksForDisplay();
     var strHTML = books.map(function (book) {
         return `<tr>
-         <td class="align-middle">${book.id}</td>
-         <td class="align-middle">${book.name}</td>
-         <td class="align-middle">${book.price}</td>
-         <td><button class="btn btn-info" data-trans="btn-read" onclick="onOpenCard(${book.id})">Read</button></td>
-         <td><button class="btn btn-warning" data-trans="btn-update" onclick="onUpdateModal(${book.id})">Update</button></td>
-         <td><button class="btn btn-danger" data-trans="btn-delete" onclick="onRemoveBook(${book.id})">Delete</button></td>
-     </tr>`
+        <td class="align-middle">${book.id}</td>
+        <td class="align-middle">${book.name}</td>
+        <td class="align-middle">${Intl.NumberFormat(gCurrLang, {
+            style: 'currency',
+            currency: gCurrCurrency,
+        }).format(book.price)}</td>
+        <td><button class="btn btn-info" data-trans="btn-read" onclick="onOpenCard(${book.id})">Read</button></td>
+        <td><button class="btn btn-warning" data-trans="btn-update" onclick="onUpdateModal(${book.id})">Update</button></td>
+        <td><button class="btn btn-danger" data-trans="btn-delete" onclick="onRemoveBook(${book.id})">Delete</button></td>
+        </tr>`
     }).join('')
     document.querySelector('.books-container').innerHTML = strHTML;
     doTrans();
@@ -108,5 +111,5 @@ function onHideCard(){
 
 function onSetLang(currLang){
     setLang(currLang);
-    doTrans();
+    renderBooks()
 }

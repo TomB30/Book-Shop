@@ -1,5 +1,6 @@
 'use strict';
 var gCurrLang = 'en';
+var gCurrCurrency = 'USD'
 var gTrans = {
     title:{
         en : 'Welcome To My BookShop',
@@ -70,6 +71,8 @@ var gTrans = {
 
 function setLang(lang){
     gCurrLang = lang;
+    if(lang === 'he') gCurrCurrency = 'ILS';
+    else gCurrCurrency = 'USD';
 }
 
 function doTrans(){
@@ -77,6 +80,11 @@ function doTrans(){
     els.forEach(function(el){
         el.innerText = getTrans(el.dataset.trans)
     })
+    if(gCurrLang === 'he'){
+        $('body').addClass('rtl')
+    }else{
+        $('body').removeClass('rtl')
+    }
 }
 
 function getTrans(transKey){

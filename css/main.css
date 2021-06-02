@@ -3,6 +3,10 @@
     text-align: center;
 }
 
+body.rtl{
+    direction: rtl;
+}
+
 .title {
     margin: 30px;
 }
