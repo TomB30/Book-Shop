@@ -21,7 +21,7 @@ function renderBooks() {
         <td><button class="btn btn-warning" data-trans="btn-update" onclick="onUpdateModal(${book.id})">Update</button></td>
         <td><button class="btn btn-danger" data-trans="btn-delete" onclick="onRemoveBook(${book.id})">Delete</button></td>
         </tr>`
-    }).join('')
+    }).join('')  
     document.querySelector('.books-container').innerHTML = strHTML;
     doTrans();
 }

@@ -8,5 +8,5 @@ function saveToStorage(key , value){
 function loadFromStorage(key){
     var value = localStorage.getItem(key);
     var json = JSON.parse(value);
-    return json
+    return json 
 }

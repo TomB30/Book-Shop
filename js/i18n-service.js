@@ -7,7 +7,7 @@ var gTrans = {
         he : 'ברוכים הבאים לחנות הספרים שלי'
     },
     'btn-new-book':{
-        en : 'Add A New Book',
+        en : 'Add A New Book' ,
         he : 'הוסף ספר חדש'
     },
     'table-title':{

@@ -49,7 +49,7 @@ function movePage(diff){
     if (gPageIdx < 0) {
         gPageIdx -= diff
         return;
-    }
+    } 
     if(gPageIdx * PAGE_SIZE >= gBooks.length) gPageIdx = 0;
     return gPageIdx;
 }
